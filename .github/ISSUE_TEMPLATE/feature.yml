@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a focused improvement to TraceVeil's deterministic privacy contract.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste production telemetry, prompts, credentials, or personal data. Explain the request using a minimal synthetic example.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the concrete telemetry or CI workflow problem.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed contract
+      description: Explain the desired input, deterministic output, policy behavior, and evidence implication.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Privacy and compatibility considerations
+      description: State false-positive/false-negative risk, any raw-data exposure risk, and migration implications.

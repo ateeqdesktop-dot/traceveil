@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install package and test tools
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+      - name: Test
+        run: pytest
+      - name: Lint
+        run: ruff check .
+      - name: Exercise CLI and verify local evidence
+        run: |
+          traceveil keygen --private-key /tmp/traceveil-private.key --public-key /tmp/traceveil-public.key
+          traceveil sanitize tests/fixtures/agent-trace.json \
+            --out /tmp/traceveil.sanitized.json \
+            --evidence /tmp/traceveil.evidence.json \
+            --sarif /tmp/traceveil.sarif \
+            --junit /tmp/traceveil.junit.xml \
+            --private-key /tmp/traceveil-private.key
+          traceveil verify \
+            --evidence /tmp/traceveil.evidence.json \
+            --sanitized /tmp/traceveil.sanitized.json \
+            --public-key /tmp/traceveil-public.key
+      - name: Upload verification artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: traceveil-${{ matrix.python-version }}
+          path: |
+            /tmp/traceveil.evidence.json
+            /tmp/traceveil.sarif
+            /tmp/traceveil.junit.xml
+          if-no-files-found: error
+
