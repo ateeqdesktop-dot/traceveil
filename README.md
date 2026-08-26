@@ -32,7 +32,8 @@ The central question is not merely *“did we redact a token?”* It is:
 TraceVeil requires **Python 3.11+**.
 
 ```bash
-python -m pip install traceveil
+# Install the tagged package directly from GitHub.
+python -m pip install "traceveil @ git+https://github.com/ateeqdesktop-dot/traceveil@v0.1.0"
 
 # Create a reviewed policy file.
 traceveil init --out traceveil.toml
@@ -205,4 +206,3 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull r
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
