@@ -47,7 +47,7 @@ runs:
         ${{ inputs.fail-on && format('--fail-on {0}', inputs.fail-on) || '' }}
     - name: Upload SARIF findings
       if: always()
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       with:
         sarif_file: ${{ inputs.sarif }}
 outputs:
