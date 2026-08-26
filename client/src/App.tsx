@@ -1,3 +1,7 @@
+/**
+ * TraceVeil design reminder: this shell keeps the “Calibration Observatory” quiet,
+ * editorial, and evidence-led; it never uses generic dashboard chrome.
+ */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
