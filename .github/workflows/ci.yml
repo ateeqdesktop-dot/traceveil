@@ -42,7 +42,7 @@ jobs:
             --sanitized /tmp/traceveil.sanitized.json \
             --public-key /tmp/traceveil-public.key
       - name: Upload verification artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: traceveil-${{ matrix.python-version }}
           path: |
