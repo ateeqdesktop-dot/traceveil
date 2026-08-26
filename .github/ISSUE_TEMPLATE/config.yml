@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: mailto:ateeqdesktop@gmail.com?subject=TraceVeil%20security%20report
+    about: Report suspected vulnerabilities privately. Do not disclose security-sensitive details in public issues.
+  - name: Documentation and architecture
+    url: https://github.com/ateeqdesktop-dot/traceveil/tree/main/docs
+    about: Review the architecture, policy reference, and security model before proposing a change.
