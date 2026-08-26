@@ -1,0 +1,33 @@
+{
+  "resourceSpans": [
+    {
+      "scopeSpans": [
+        {
+          "spans": [
+            {
+              "traceId": "a1b2c3d4",
+              "spanId": "span-001",
+              "name": "agent.tool.call",
+              "attributes": [
+                {
+                  "key": "gen_ai.input.messages",
+                  "value": {
+                    "stringValue": "[{\"role\":\"user\",\"content\":\"Email alice@example.com. Use token ghp_abcdefghijklmnopqrstuvwx.\"}]"
+                  }
+                },
+                {
+                  "key": "http.request.header.authorization",
+                  "value": {"stringValue": "Bearer deeplySensitiveToken12345"}
+                },
+                {
+                  "key": "gen_ai.output.messages",
+                  "value": {"stringValue": "The safe response is ready."}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
