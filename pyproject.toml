@@ -20,7 +20,7 @@ classifiers = [
   "Topic :: Security",
   "Topic :: Software Development :: Quality Assurance",
 ]
-dependencies = ["cryptography>=46.0.7,<51"]
+dependencies = ["cryptography>=50.0.2,<51"]
 
 [project.urls]
 Homepage = "https://github.com/ateeqdesktop-dot/traceveil"
